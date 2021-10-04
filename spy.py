@@ -130,7 +130,7 @@ async def start(event):
 
     while True:
          ##
-        await event.respond(f'{contact.name} {contact.online}')  
+        
 ##
         user_data = data[id]
         if(not user_data['is_running'] or len(contacts) < 1):
@@ -140,9 +140,18 @@ async def start(event):
         for contact in contacts:
             print(contact)
             account = await client.get_entity(contact.id)
+         
+         #
 
         if isinstance(account.status, UserStatusOnline):
             if contact.online != True:
+                           
+                           
+                           
+                           #
+                await event.respond(f'{contact.online}')  
+                                    
+                                    
                 contact.online = True
                 contact.last_offline = datetime.now()
                 was_offline='unknown offline time'
@@ -151,6 +160,9 @@ async def start(event):
                 await event.respond(f'{get_interval(was_offline)}: {contact.name} went online.')
         elif isinstance(account.status, UserStatusOffline):
             if contact.online == True:
+                           
+                           ####
+                await event.respond(f'{contact.online}')  
                 contact.online = False
                 last_time_online = utc2localtime(account.status.was_online)
                 if (last_time_online is None):
