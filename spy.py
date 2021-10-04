@@ -112,8 +112,7 @@ async def start(event):
     if('is_running' in user_data and user_data['is_running']):
         await event.respond('Spy is already started')
         return
-    
-    await event.respond(f'{contact.name} {contact.online}')     
+        
     #ssd      
          
     if 'contacts' not in user_data:
@@ -130,6 +129,9 @@ async def start(event):
     user_data['is_running'] = True
 
     while True:
+         ##
+        await event.respond(f'{contact.name} {contact.online}')  
+##
         user_data = data[id]
         if(not user_data['is_running'] or len(contacts) < 1):
             break;
