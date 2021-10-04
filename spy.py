@@ -112,7 +112,10 @@ async def start(event):
     if('is_running' in user_data and user_data['is_running']):
         await event.respond('Spy is already started')
         return
-
+    
+    await event.respond(f'{contact.name} {contact.online}')     
+    #ssd      
+         
     if 'contacts' not in user_data:
         user_data['contacts'] = []
 
@@ -216,6 +219,8 @@ async def remove(event):
         await event.respond(f'User №{index} has been deleted')
     else:
         await event.respond('Incorrect index')
+
+    
 
 @bot.on(events.NewMessage(pattern='^/setdelay'))
 async def setDelay(event):
