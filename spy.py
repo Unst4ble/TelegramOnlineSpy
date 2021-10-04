@@ -149,7 +149,7 @@ async def start(event):
                            
                            
                            #
-                await event.respond(f'{contact.online}')  
+                
                                     
                                     
                 contact.online = True
@@ -162,7 +162,7 @@ async def start(event):
             if contact.online == True:
                            
                            ####
-                await event.respond(f'{contact.online}')  
+                
          #
                 contact.online = False
                 last_time_online = utc2localtime(account.status.was_online)
@@ -182,7 +182,7 @@ async def start(event):
                 contact.online = False
                 contact.last_online = datetime.now()
                   #
-                await event.respond(f'{contact.online}')  
+                
                   #
                 was_online='unknown online time'
                 if contact.last_offline is not None:
